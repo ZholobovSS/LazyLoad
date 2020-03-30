@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		}
 
-		this.addClass(className, element) {
+		addClass(className, element) {
 			element.classList.add( className );
 		};
 
