@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		constructor(selector) {
 
 			super(selector);
-			this.dataLazy = 'lazyloadBg';
+			this.dataLazy = 'lazyloadbg';
 			this.addClassName = 'loaded';
 
 		}
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				if (this.inView(element) && element.dataset.hasOwnProperty(this.dataLazy)) {
 
 					this.addClass( this.addClassName, element );
-					this.removeAttribute('data-'+this.dataLazy);
+					element.removeAttribute('data-'+this.dataLazy);
 
 				}				
 			});
