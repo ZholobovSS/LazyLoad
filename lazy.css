@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-.lazyLoad--loading + .lazyload__loader {
+img[data="lazyload"] + .lazyload__loader {
   position: absolute;
   top: 0;
   left: 0;

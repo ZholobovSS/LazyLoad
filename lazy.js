@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		checkInView() {
 			this.$els.forEach( element => {
-				if (this.inView(element) && element.dataset.hasOwnProperty(this.dataLazy); && element.dataset[this.dataLazy].length) {
+				if (this.inView(element) && element.dataset.hasOwnProperty(this.dataLazy) && element.dataset[this.dataLazy].length) {
 
 					this.setSrc(element);
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			this.$els.forEach( element => {
 
-				if ( element.dataset[this.dataLazy].length  && element.dataset.hasOwnProperty(this.lazyLoadSlider) ) {
+				if ( element.dataset.hasOwnProperty(this.dataLazy) && element.dataset[this.dataLazy].length  && element.dataset.hasOwnProperty(this.lazyLoadSlider) ) {
 					this.setSrc(element);
 				}
 
@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			element.src = element.dataset[this.dataLazy];
 			element.dataset[this.dataLazy] = "";
+			element.removeAttribute('data-'+this.dataLazy);
 
 		}
 
