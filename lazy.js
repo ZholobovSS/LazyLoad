@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	}
 
-	const newLazyImgs = new LazyImgs('.lazyload');
+	const newLazyImgs = new LazyImgs('[data-lazyload]');
 	newLazyImgs.checkInView();
 	
 
