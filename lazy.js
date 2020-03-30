@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	const newLazyImgs = new LazyImgs('[data-lazyload]');
 	newLazyImgs.checkInView();
 	
-	const newLazyBg = new LazyElements('[data-lazyloadbg]');
+	const newLazyBg = new LazyBg('[data-lazyloadbg]');
 	newLazyBg.checkInView();
 
 	document.addEventListener('scroll', function() {
