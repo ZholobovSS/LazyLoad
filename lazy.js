@@ -21,8 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		}
 
-	}
+		this.addClass(className, element) {
+			element.classList.add( className );
+		};
 
+	}
 
 	class LazyImgs extends LazyElements {
 
@@ -47,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					}
 
 				}				
-			} );
+			});
 
 		}
 
@@ -74,13 +77,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	}
 
+	class LazyBg extends LazyElements {
+
+		constructor(selector) {
+
+			super(selector);
+			this.dataLazy = 'lazyloadBg';
+			this.addClassName = 'loaded';
+
+		}
+
+		checkInView() {
+			this.$els.forEach( element => {
+				if (this.inView(element) && element.dataset.hasOwnProperty(this.dataLazy)) {
+
+					this.addClass( this.addClassName, element );
+					this.removeAttribute('data-'+this.dataLazy);
+
+				}				
+			});
+
+		}
+
+	}
+
 	const newLazyImgs = new LazyImgs('[data-lazyload]');
 	newLazyImgs.checkInView();
 	
+	const newLazyBg = new LazyElements('[data-lazyloadbg]');
+	newLazyBg.checkInView();
 
 	document.addEventListener('scroll', function() {
 
 		newLazyImgs.checkInView();
+		newLazyBg.checkInView();
 
 	});
 
