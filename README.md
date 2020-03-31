@@ -48,7 +48,7 @@
                  atl="some alt">
             <div class="lazyload__loader">
     			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-    		</div>
+    	    </div>
         </div>
     </div>
 ```
