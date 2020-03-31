@@ -18,7 +18,7 @@
 ### LazyLoad для одиночных изображений
 Разметка **ДО** внедрения:
 ```html
-    <img src="some_path_to_your_image.png" atl="some alt">
+	<img src="some_path_to_your_image.png" atl="some alt">
 ```
 Разметка **ПОСЛЕ** внедрения:
 ```html
@@ -70,15 +70,15 @@
 
 Разметка **HTML ПОСЛЕ** внедрения:
 ```html
-    <div data-lazyloadbg class="block"></div>
+	<div data-lazyloadbg class="block"></div>
 ```
 Разметка **CSS ПОСЛЕ** внедрения:
 ```html
-    .block {
-        //some css rules here
-    }
+	.block {
+		//some css rules here
+	}
     
-    .loaded.block {
-        background: url(path_to_image.png);
-    }
+	.loaded.block {
+		background: url(path_to_image.png);
+	}
 ```
