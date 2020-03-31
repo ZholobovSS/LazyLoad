@@ -44,10 +44,12 @@
 ```html
 	<div class="some_class_for_slider_item"> // блок обертка для слайдера
 		<div class="relative">
-			<img src="/1x1.png" 
+			<img 
+			     	 src="/1x1.png" 
 				 data-lazyload="some_path_to_your_image.png"
 				 data-lazyloadslider
-				 atl="some alt">
+				 atl="some alt"
+			>
 			<div class="lazyload__loader">
 				<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 			</div>
