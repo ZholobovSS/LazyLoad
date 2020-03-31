@@ -27,8 +27,9 @@
 	     data-lazyload="some_path_to_your_image.png" 
 	     atl="some alt">
         <div class="lazyload__loader">
-		<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
-	</div>
+		<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+	    </div>
+    </div>
 ```
 
 ### LazyLoad для слайдера
