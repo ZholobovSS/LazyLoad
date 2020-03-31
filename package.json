@@ -1,0 +1,29 @@
+{
+  "name": "lazyload",
+  "version": "1.0.1",
+  "description": "Script for lazyload's images",
+  "main": "lazy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZholobovSS/LazyLoad.git"
+  },
+  "keywords": [
+    "js",
+    "image",
+    "images",
+    "lazyload"
+  ],
+  "author": "ZholobovSS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZholobovSS/LazyLoad/issues"
+  },
+  "homepage": "https://github.com/ZholobovSS/LazyLoad#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
