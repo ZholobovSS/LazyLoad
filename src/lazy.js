@@ -1,3 +1,5 @@
+import './lazy.css'
+
 document.addEventListener('DOMContentLoaded', function() {
 	
 	class LazyElements {

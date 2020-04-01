@@ -4,12 +4,15 @@
   "description": "Script for lazyload's images",
   "main": "lazy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZholobovSS/LazyLoad.git"
   },
+  "browserslist": "> 0.25%, not dead",
   "keywords": [
     "js",
     "image",
@@ -23,7 +26,20 @@
   },
   "homepage": "https://github.com/ZholobovSS/LazyLoad#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "style-loader": "^1.1.3",
+    "terser-webpack-plugin": "^2.3.5",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7"
   }
 }
