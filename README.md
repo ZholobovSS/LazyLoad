@@ -4,6 +4,7 @@
 ### Demo 
 https://zholobovss.github.io/LazyLoad/
 
+
 # Как подключить
 Подключите `lazy.js` и `lazy.css` удобным для вас способом в ваш проект. 
 Данные файлы располагаются в папке `build`:
