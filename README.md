@@ -1,7 +1,7 @@
 # LazyLoad
 Отложенная загрузка изображений
 
-###Demo 
+##Demo 
 https://zholobovss.github.io/LazyLoad/
 
 # Как подключить
