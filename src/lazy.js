@@ -1,119 +1,70 @@
 import './lazy.css'
 
-document.addEventListener('DOMContentLoaded', function() {
-	
-	class LazyElements {
-
-		constructor(selector) {
-			this.$els = Array.from(document.querySelectorAll(selector));
+class LazyElements {
+	constructor( selector ) {
+		this.$els = [...document.querySelectorAll(selector)];
+		this.dataAttr = 'lazyload';
+		this.observerOptions = {
+			threshold: 0.51
 		}
-
-		inView(element) {
-
-			let elementTop = element.getBoundingClientRect().top;
-			let elementBottom = element.getBoundingClientRect().bottom;
-			let screenHeight = document.documentElement.clientHeight;
-
-			if ( (elementTop > 0 && elementTop < screenHeight) ||
-				 (elementBottom > 0 && elementBottom < screenHeight) ) {
-				return true;
-			} else {
-				return false;
-			}
-
-		}
-
-		addClass(className, element) {
-			element.classList.add( className );
-		};
-
+		this.observer;
+		this.callbackObserver
+		this.addClasses = ['loaded'];
 	}
 
-	class LazyImgs extends LazyElements {
+	watch () {
+		this.createObserverCallback();
+		this.createObserver();
+		this.initObserver();
+	}
 
-		constructor(selector) {
-
-			super(selector);
-			this.dataLazy = 'lazyload';
-			this.lazyLoadSlider = 'lazyloadslider';
-			this.initLazySlider = false;
-
-		}
-
-		checkInView() {
-			this.$els.forEach( element => {
-				if (this.inView(element) && element.dataset.hasOwnProperty(this.dataLazy) && element.dataset[this.dataLazy].length) {
-
-					this.setSrc(element);
-
-					if (element.dataset.hasOwnProperty(this.lazyLoadSlider) && !this.initLazySlider) {
-						this.checkSlider();
-						this.initLazySlider = true;
+	createObserverCallback() {
+		this.callbackObserver = (entries, observer) => {
+			entries.forEach( entry => {
+				if (entry.isIntersecting) {
+					switch (entry.target.tagName) {
+						case 'IMG':
+							this.setSrc(entry.target)
+							this.addClass(entry.target)
+							break;
+						default:
+							this.addClass(entry.target)
+							break;
 					}
-
-				}				
-			});
-
-		}
-
-		checkSlider() {
-
-			this.$els.forEach( element => {
-
-				if ( element.dataset.hasOwnProperty(this.dataLazy) && element.dataset[this.dataLazy].length  && element.dataset.hasOwnProperty(this.lazyLoadSlider) ) {
-					this.setSrc(element);
 				}
-
 			});
-
-
+			
 		}
-
-		setSrc(element) {
-
-			element.src = element.dataset[this.dataLazy];
-			element.dataset[this.dataLazy] = "";
-			element.removeAttribute('data-'+this.dataLazy);
-
-		}
-
 	}
 
-	class LazyBg extends LazyElements {
-
-		constructor(selector) {
-
-			super(selector);
-			this.dataLazy = 'lazyloadbg';
-			this.addClassName = 'loaded';
-
-		}
-
-		checkInView() {
-			this.$els.forEach( element => {
-				if (this.inView(element) && element.dataset.hasOwnProperty(this.dataLazy)) {
-
-					this.addClass( this.addClassName, element );
-					element.removeAttribute('data-'+this.dataLazy);
-
-				}				
-			});
-
-		}
-
+	createObserver () {
+		this.observer = new IntersectionObserver(this.callbackObserver, this.observerOptions);
 	}
 
-	const newLazyImgs = new LazyImgs('[data-lazyload]');
-	newLazyImgs.checkInView();
-	
-	const newLazyBg = new LazyBg('[data-lazyloadbg]');
-	newLazyBg.checkInView();
+	initObserver () {
+		this.$els.forEach( element => {
+			this.observer.observe(element);
+		});
+	}
 
-	document.addEventListener('scroll', function() {
+	addClass (element) {
+		this.addClasses.forEach( className => {
+			element.classList.add(className);
+		});
+		this.unObserve(element);
+	}
 
-		newLazyImgs.checkInView();
-		newLazyBg.checkInView();
+	unObserve(element) {
+		this.observer.unobserve(element);
+	}
 
-	});
+	setSrc (element) {
+		element.src = element.dataset[this.dataAttr];
+		element.removeAttribute('data-'+this.dataAttr);
+	}
+}
 
+document.addEventListener('DOMContentLoaded', function() {
+	const newLazyImgs = new LazyElements('[data-lazyload]');
+	newLazyImgs.watch();
 });
