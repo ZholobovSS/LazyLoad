@@ -24,7 +24,7 @@ https://zholobovss.github.io/LazyLoad/
 ### LazyLoad для `<img>` элементов
 Разметка **ДО** внедрения:
 ```html
-        <img src="some_path_to_your_image.png" atl="some alt">
+    <img src="some_path_to_your_image.png" atl="some alt">
 ```
 Разметка **ПОСЛЕ** внедрения:
 ```html
