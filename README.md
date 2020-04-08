@@ -31,7 +31,6 @@ https://zholobovss.github.io/LazyLoad/
     <img src="/1x1.png" 
 		 data-lazyload="some_path_to_your_image.png" 
 		 atl="some alt">
-		
 ```
 
 ### LazyLoad для фоновых изображений
