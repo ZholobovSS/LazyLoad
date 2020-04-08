@@ -21,21 +21,17 @@ https://zholobovss.github.io/LazyLoad/
   - изображения входящие в состав слайдера
   - изображения установленные через css свойство `background или background-image`
 
-### LazyLoad для одиночных изображений и слайдеров
+### LazyLoad для `<img>` элементов
 Разметка **ДО** внедрения:
 ```html
 	<img src="some_path_to_your_image.png" atl="some alt">
 ```
 Разметка **ПОСЛЕ** внедрения:
 ```html
-	<div class="relative">
-        	<img src="/1x1.png" 
-		     data-lazyload="some_path_to_your_image.png" 
-		     atl="some alt">
-		<div class="lazyload__loader">
-			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-		</div>
-	</div>
+    <img src="/1x1.png" 
+		 data-lazyload="some_path_to_your_image.png" 
+		 atl="some alt">
+		
 ```
 
 ### LazyLoad для фоновых изображений

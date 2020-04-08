@@ -4,7 +4,7 @@
   height: 100%;
 }
 
-img[data-lazyload] + .lazyload__loader {
+.lazyload__loader {
   position: absolute;
   top: 0;
   left: 0;
@@ -17,7 +17,7 @@ img[data-lazyload] + .lazyload__loader {
   align-items: center;  
 }
 
-.lazyload__loader {
+img.loaded + .lazyload__loader {
   display: none;
 }
 
