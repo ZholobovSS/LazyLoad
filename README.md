@@ -24,13 +24,13 @@ https://zholobovss.github.io/LazyLoad/
 ### LazyLoad для `<img>` элементов
 Разметка **ДО** внедрения:
 ```html
-	<img src="some_path_to_your_image.png" atl="some alt">
+        <img src="some_path_to_your_image.png" atl="some alt">
 ```
 Разметка **ПОСЛЕ** внедрения:
 ```html
     <img src="/1x1.png" 
-		 data-lazyload="some_path_to_your_image.png" 
-		 atl="some alt">
+         data-lazyload="some_path_to_your_image.png" 
+         atl="some alt">
 ```
 
 ### LazyLoad для фоновых изображений
@@ -48,15 +48,15 @@ https://zholobovss.github.io/LazyLoad/
 
 Разметка **HTML ПОСЛЕ** внедрения:
 ```html
-	<div data-lazyload class="block"></div>
+    <div data-lazyload class="block"></div>
 ```
 Разметка **CSS ПОСЛЕ** внедрения:
 ```html
-	.block {
-		//some css rules here
-	}
+    .block {
+        //some css rules here
+    }
     
-	.loaded.block {
-		background: url(path_to_image.png);
-	}
+    .loaded.block {
+        background: url(path_to_image.png);
+    }
 ```
