@@ -55,16 +55,16 @@ class LazyElements {
 		let parent = element.parentElement;
 		let wrapper = document.createElement('div');
 		wrapper.className = 'relative';
+		
+		this.applyWrapper(wrapper, parent, element);
+	}
+
+	applyWrapper ( wrapper, parent, element ) {
+		parent.replaceChild(wrapper, element);
 		wrapper.append(element);
 		wrapper.insertAdjacentHTML('beforeend', ` <div class="lazyload__loader">
                 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-              </div>`);
-		this.applyWrapper(wrapper, parent);
-	}
-
-	applyWrapper ( template, parent ) {
-		parent.innerHTML = '';
-		parent.append(template);
+              </div>`);		
 	}
 
 	createObserver () {
